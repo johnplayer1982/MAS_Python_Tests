@@ -10,6 +10,7 @@
 # ----------------------------------------------------------------------
 
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 class mortgageCalc():
 
@@ -34,7 +35,7 @@ class mortgageCalc():
         deposit = deposit
         lang = lang
 
-        driver = webdriver.Firefox()
+        driver = webdriver.Chrome('/Users/johnplayer/chromedriver')
 
         if lang == 'en':
             driver.get('https://www.%s/%s/tools/mortgage-calculator' % (url, lang))
