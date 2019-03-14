@@ -10,7 +10,7 @@
 # ----------------------------------------------------------------------
 
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+import pprint
 
 class mortgageCalc():
 
@@ -51,3 +51,9 @@ class mortgageCalc():
         depositField.send_keys(deposit)
 
         driver.find_elements_by_class_name("mortgagecalc__submit")[0].click()
+
+        for entry in driver.get_log('browser'):
+            if entry['level'] == 'SEVERE':
+                print 'ERROR:', entry['message'], '\nSOURCE:', entry['source'], '\n'
+
+        driver.close()
