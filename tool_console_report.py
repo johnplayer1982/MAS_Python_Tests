@@ -1,6 +1,5 @@
 from selenium import webdriver
 from os.path import expanduser
-import pprint
 import csv
 
 class testTools():
@@ -9,7 +8,7 @@ class testTools():
 
         print 'Testing all tools'
 
-    def runtest(self, url='moneyadviceservice.org.uk'):
+    def runtest(self, url='preview.dev.mas.local'):
 
         tools = {
             "mortgage-calculator",
@@ -36,24 +35,34 @@ class testTools():
         home = expanduser("~")
         driver = webdriver.Chrome(home + '/chromedriver')
         results = {}
+        globalCount = 0
 
         for tool in tools:
 
-            print 'Testing %s for console errors' % tool
-            toolPath = 'https://www.%s/en/tools/%s' % (url, tool)
-            driver.get(toolPath)
+            print '\n' + 'Checking %s' % tool
+
+            errorCount = 0
+            warningCount = 0
+
+            tool_path = 'https://www.%s/en/tools/%s' % (url, tool)
+            driver.get(tool_path)
 
             for entry in driver.get_log('browser'):
-                print 'ERROR:', entry['message'], '\nSOURCE:', entry['source'], '\n'
+
+                if entry['level'] == "SEVERE":
+                    errorCount += 1
+                    globalCount += 1
+                elif entry['level'] == "WARNING":
+                    warningCount += 1
+                    globalCount += 1
+
+                entry = entry['message']
+                print entry
                 results.update({tool: entry})
 
-        print pprint.pprint(results)
+            print errorCount, 'errors found'
+            print warningCount, 'warnings found'
 
-        file_path = home + '/console_results.csv'
-
-        with open(file_path, 'wb') as f:
-            w = csv.DictWriter(f, results.keys())
-            w.writeheader()
-            w.writerow(results)
+        print '\nTotal Errors and Warnings:', globalCount
 
         driver.close()
