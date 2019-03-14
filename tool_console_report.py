@@ -1,5 +1,7 @@
 from selenium import webdriver
+from os.path import expanduser
 import pprint
+import csv
 
 class testTools():
 
@@ -7,7 +9,7 @@ class testTools():
 
         print 'Testing all tools'
 
-    def runtest(self, url='moneyadviceservice.org.uk', lang='en'):
+    def runtest(self, url='moneyadviceservice.org.uk'):
 
         tools = {
             "mortgage-calculator",
@@ -31,16 +33,27 @@ class testTools():
             "health-check"
         }
 
-        driver = webdriver.Chrome('/Users/johnplayer/chromedriver')
+        home = expanduser("~")
+        driver = webdriver.Chrome(home + '/chromedriver')
+        results = {}
 
         for tool in tools:
 
             print 'Testing %s for console errors' % tool
-            toolPath = 'https://www.%s/%s/tools/%s' % (url, lang, tool)
+            toolPath = 'https://www.%s/en/tools/%s' % (url, tool)
             driver.get(toolPath)
 
             for entry in driver.get_log('browser'):
                 print 'ERROR:', entry['message'], '\nSOURCE:', entry['source'], '\n'
+                results.update({tool: entry})
 
+        print pprint.pprint(results)
+
+        file_path = home + '/console_results.csv'
+
+        with open(file_path, 'wb') as f:
+            w = csv.DictWriter(f, results.keys())
+            w.writeheader()
+            w.writerow(results)
 
         driver.close()
