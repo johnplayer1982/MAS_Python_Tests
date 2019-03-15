@@ -32,6 +32,26 @@ class testTools():
             "health-check"
         }
 
+        pages = {
+            "",
+            "categories/tools-and-calculators",
+            "users/sign_in",
+            "users/sign_up",
+            "categories/debt-and-borrowing",
+            "articles/how-much-rent-can-you-afford",
+            "corporate/about-us",
+            "corporate/media-centre",
+            "corporate_categories/partners",
+            "corporate_categories/our-debt-work",
+            "corporate/jobs",
+            "corporate/contact-us",
+            "corporate/terms-and-conditions",
+            "corporate/privacy",
+            "corporate/accessibility",
+            "corporate/cookie_notice_en",
+            "sitemap"
+        }
+
         home = expanduser("~")
         driver = webdriver.Chrome(home + '/chromedriver')
         results = {}
@@ -39,13 +59,13 @@ class testTools():
 
         for tool in tools:
 
-            print '\n' + 'Checking %s' % tool
+            tool_path = 'https://www.%s/en/tools/%s' % (url, tool)
+            driver.get(tool_path)
+
+            print '\n' + 'Checking %s on %s' % (tool, tool_path)
 
             errorCount = 0
             warningCount = 0
-
-            tool_path = 'https://www.%s/en/tools/%s' % (url, tool)
-            driver.get(tool_path)
 
             for entry in driver.get_log('browser'):
 
@@ -59,6 +79,31 @@ class testTools():
                 entry = entry['message']
                 print entry
                 results.update({tool: entry})
+
+            print errorCount, 'errors found'
+            print warningCount, 'warnings found'
+
+        for page in pages:
+
+            page_path = 'https://www.%s/en/%s' % (url, page)
+            driver.get(page_path)
+            print '\n' + 'Checking %s on %s' % (page, page_path)
+
+            errorCount = 0
+            warningCount = 0
+
+            for entry in driver.get_log('browser'):
+
+                if entry['level'] == "SEVERE":
+                    errorCount += 1
+                    globalCount += 1
+                elif entry['level'] == "WARNING":
+                    warningCount += 1
+                    globalCount += 1
+
+                entry = entry['message']
+                print entry
+                results.update({page: entry})
 
             print errorCount, 'errors found'
             print warningCount, 'warnings found'
