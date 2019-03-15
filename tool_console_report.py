@@ -1,5 +1,6 @@
 from selenium import webdriver
 from os.path import expanduser
+import pprint
 import csv
 
 class testTools():
@@ -62,7 +63,7 @@ class testTools():
             tool_path = 'https://www.%s/en/tools/%s' % (url, tool)
             driver.get(tool_path)
 
-            print '\n' + 'Checking %s on %s' % (tool, tool_path)
+            print '\n' + 'Checking %s (%s)' % (tool, tool_path)
 
             errorCount = 0
             warningCount = 0
@@ -78,7 +79,7 @@ class testTools():
 
                 entry = entry['message']
                 print entry
-                results.update({tool: entry})
+                results.update({tool_path: entry})
 
             print errorCount, 'errors found'
             print warningCount, 'warnings found'
@@ -87,7 +88,7 @@ class testTools():
 
             page_path = 'https://www.%s/en/%s' % (url, page)
             driver.get(page_path)
-            print '\n' + 'Checking %s on %s' % (page, page_path)
+            print '\n' + 'Checking %s (%s)' % (page, page_path)
 
             errorCount = 0
             warningCount = 0
@@ -103,11 +104,17 @@ class testTools():
 
                 entry = entry['message']
                 print entry
-                results.update({page: entry})
+
+                results.update({page_path: entry})
 
             print errorCount, 'errors found'
             print warningCount, 'warnings found'
 
         print '\nTotal Errors and Warnings:', globalCount
+
+        pprint.pprint(results)
+
+        f = open("output.txt" , "w+")
+        f.write('%s \n' % results)
 
         driver.close()
