@@ -13,7 +13,7 @@ class testTools():
 
         tools = {
             "mortgage-calculator",
-            'house-buying/stamp-duty-calculator',
+            "house-buying/stamp-duty-calculator",
             "house-buying/mortgage-affordability-calculator",
             "pension-calculator",
             "annuities",
@@ -77,8 +77,8 @@ class testTools():
                     warningCount += 1
                     globalCount += 1
 
-                entry = entry['message']
-                print entry
+                print entry['message']
+
                 results.update({tool_path: entry})
 
             print errorCount, 'errors found'
@@ -102,7 +102,6 @@ class testTools():
                     warningCount += 1
                     globalCount += 1
 
-                entry = entry['message']
                 print entry
 
                 results.update({page_path: entry})
@@ -112,9 +111,14 @@ class testTools():
 
         print '\nTotal Errors and Warnings:', globalCount
 
-        pprint.pprint(results)
+        for result in results:
+            print result
 
-        f = open("output.txt" , "w+")
-        f.write('%s \n' % results)
+        with open('output.csv', "wb") as csv_file:
+            writer = csv.writer(csv_file)
+            for p_id, p_info in results.items():
+                writer.writerow([p_id])
+                writer.writerow([p_info])
+                writer.writerow(" ")
 
         driver.close()
