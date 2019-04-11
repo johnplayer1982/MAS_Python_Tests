@@ -1,0 +1,30 @@
+https://www.preview.dev.mas.local/en/tools/health-check
+"{u'source': u'console-api', u'message': u'https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js 0:6844 TypeError: n.debounce is not a function\n    at e (https://mascdn.azureedge.net/frontend-preview/a/dough/assets/js/lib/mediaQueries-de5ecab2176a48847cfbd2fb828b3c87.js:1:482)\n    at https://mascdn.azureedge.net/frontend-preview/a/dough/assets/js/lib/mediaQueries-de5ecab2176a48847cfbd2fb828b3c87.js:1:613\n    at Object.execCb (https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:12717)\n    at e.check (https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:6439)\n    at e.<anonymous> (https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:9015)\n    at https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:757\n    at https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:9476\n    at each (https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:235)\n    at emit (https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:9444)\n    at e.check (https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:7161)', u'timestamp': 1553167347066, u'level': u'SEVERE'}"
+ 
+https://www.preview.dev.mas.local/en/tools/house-buying/mortgage-affordability-calculator
+"{u'source': u'javascript', u'message': u'https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js 0:1009 Uncaught Error: Mismatched anonymous define() module: function(){r\u2026x}\nhttp://requirejs.org/docs/errors.html#mismatch', u'timestamp': 1553167355697, u'level': u'SEVERE'}"
+ 
+https://www.preview.dev.mas.local/en/tools/mortgage-calculator
+"{u'source': u'console-api', u'message': u'https://mascdn.azureedge.net/frontend-preview/a/mortgage_calculator/application-5220e543341c9c9850053808c8cea851.js 2:22410 ""JQMIGRATE: jQuery.fn.undelegate() is deprecated""', u'timestamp': 1553167321365, u'level': u'WARNING'}"
+ 
+https://www.preview.dev.mas.local/en/tools/pension-calculator
+"{u'source': u'console-api', u'message': u'https://mascdn.azureedge.net/frontend-preview/a/jquery-migrate/jquery-migrate-ffc03617a8644579fbf764fde01074e5.js 0:129 ""JQMIGRATE: jQuery.fn.bind() is deprecated""', u'timestamp': 1553167344104, u'level': u'WARNING'}"
+ 
+https://www.preview.dev.mas.local/en/tools/christmas-money-planner
+"{u'source': u'console-api', u'message': u'https://mascdn.azureedge.net/frontend-preview/a/jquery-migrate/jquery-migrate-ffc03617a8644579fbf764fde01074e5.js 0:129 ""JQMIGRATE: jQuery.expr[\\"":\\""] is now jQuery.expr.pseudos""', u'timestamp': 1553167370456, u'level': u'WARNING'}"
+ 
+https://www.preview.dev.mas.local/en/tools/car-costs-calculator
+"{u'source': u'console-api', u'message': u'https://mascdn.azureedge.net/frontend-preview/a/jquery-migrate/jquery-migrate-ffc03617a8644579fbf764fde01074e5.js 0:129 ""JQMIGRATE: jQuery.fn.bind() is deprecated""', u'timestamp': 1553167326839, u'level': u'WARNING'}"
+ 
+https://www.preview.dev.mas.local/en/tools/savings-calculator/how_long
+"{u'source': u'console-api', u'message': u'https://mascdn.azureedge.net/frontend-preview/a/jquery-migrate/jquery-migrate-ffc03617a8644579fbf764fde01074e5.js 0:129 ""JQMIGRATE: jQuery.expr[\\"":\\""] is now jQuery.expr.pseudos""', u'timestamp': 1553167351371, u'level': u'WARNING'}"
+ 
+https://www.preview.dev.mas.local/en/tools/redundancy-pay-calculator
+"{u'source': u'console-api', u'message': u'https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js 0:6844 TypeError: n.debounce is not a function\n    at e (https://mascdn.azureedge.net/frontend-preview/a/dough/assets/js/lib/mediaQueries-de5ecab2176a48847cfbd2fb828b3c87.js:1:482)\n    at https://mascdn.azureedge.net/frontend-preview/a/dough/assets/js/lib/mediaQueries-de5ecab2176a48847cfbd2fb828b3c87.js:1:613\n    at Object.execCb (https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:12717)\n    at e.check (https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:6439)\n    at e.<anonymous> (https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:9015)\n    at https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:757\n    at https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:9476\n    at each (https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:235)\n    at emit (https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:9444)\n    at e.check (https://mascdn.azureedge.net/frontend-preview/a/requirejs/require-f1008c6d842bd41cdb4123d065f126e5.js:1:7161)', u'timestamp': 1553167343398, u'level': u'SEVERE'}"
+ 
+https://www.preview.dev.mas.local/en/tools/house-buying/stamp-duty-calculator
+"{u'source': u'console-api', u'message': u'https://mascdn.azureedge.net/frontend-preview/a/mortgage_calculator/application-5220e543341c9c9850053808c8cea851.js 2:22410 ""JQMIGRATE: jQuery.fn.undelegate() is deprecated""', u'timestamp': 1553167369450, u'level': u'WARNING'}"
+ 
+https://www.preview.dev.mas.local/en/
+"{u'source': u'network', u'message': u'https://masassets.blob.core.windows.net/cms/files/000/000/816/extra_small/Tile2.jpg - Failed to load resource: the server responded with a status of 404 (The specified blob does not exist.)', u'timestamp': 1553167373231, u'level': u'SEVERE'}"
+ 

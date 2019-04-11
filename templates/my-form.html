@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %}Link Checker{% endblock %}
+{% block content %}
+
+    <ul class="error-list">
+    </ul>
+
+    <form method="POST" class="linkcheck_form">
+        <input name="url" class="text_field" placeholder="https://">
+        <input type="submit" class="button" value="Check for Link Errors">
+    </form>
+
+    <p class="summary">{{ summary|safe }}</p>
+
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'Errors')">Errors</button>
+      <button class="tablinks" onclick="openTab(event, 'Images')">Images</button>
+      <button class="tablinks" onclick="openTab(event, 'Output')">Output</button>
+    </div>
+
+    <div id="Errors" class="tabcontent">
+      <h3>Errors</h3>
+      <p class="results">{{ errors|safe }}</p>
+    </div>
+
+    <div id="Images" class="tabcontent">
+      <h3>Images</h3>
+      <p class="results">{{ images|safe }}</p>
+    </div>
+
+    <div id="Output" class="tabcontent">
+      <h3>Output</h3>
+      <p class="results">{{ output|safe }}</p>
+    </div>
+
+    <script src="{{url_for('static', filename='js/link-checker.js')}}"></script>
+    <script src="{{url_for('static', filename='js/tabs.js')}}"></script>
+{% endblock %}

@@ -45,3 +45,15 @@ reload(tcr)
 newtest = tcr.testTools()
 newtest.runtest(url='<Enter_URL>')
 ```
+
+### linkchecker
+
+Checks all of the links for a specified URL.
+
+Run using:
+
+```
+FLASK_APP=linkchecker.py flask run
+```
+
+Then visit 'http://127.0.0.1:5000'

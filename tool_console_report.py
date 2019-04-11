@@ -1,6 +1,5 @@
 from selenium import webdriver
 from os.path import expanduser
-import pprint
 import csv
 
 class testTools():
