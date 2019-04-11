@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 def my_form():
 
-    return render_template('my-form.html')
+    return render_template('link-checker.html')
 
 @app.route('/', methods=['POST'])
 
@@ -33,6 +33,7 @@ def my_form_post():
     error_results = []
     not_found_results = []
     image_results = []
+    no_path = []
 
     for link in links:
 
@@ -51,10 +52,15 @@ def my_form_post():
         elif link_path == 'https://':
             print 'No full path given:', link_path
             no_path_count += 1
+            no_path.append(link_path)
 
         else:
             link_string = link_path
+
+            # Open the link
             open_link = urllib2.urlopen(link_string)
+
+            # Get the response status
             status = open_link.getcode()
 
             print 'Checking', link_path
@@ -68,7 +74,7 @@ def my_form_post():
                 not_found_count += 1
                 not_found_results.append(link)
 
-        this_result = '<li>Testing: %s | <span>status %s returned</span></li>' % (link_path, status)
+        this_result = '<li>Testing: %s' % link_path
         results.append(this_result)
 
         result_string = str(results)
@@ -91,11 +97,17 @@ def my_form_post():
         image_string = image_string.replace(")", "")
         image_string = image_string.replace(',', '<br />')
 
+        no_path_string = str(no_path)
+
         summary_string = 'All Done! I found a total of <span>{link_count}</span> links on <a href="{link_url}" target="_blank">{link_url}</a>, Of these, <span>{success_count}</span> completed with a status code of 200 (success). <span>{no_path_count}</span> links contained incomplete paths, <span>{error_count}</span> links resulted in an error, <span>{not_found_count}</span> links resulted in a 404 (file not found), <span>{image_count}</span> links were actually images'.format(link_count=link_count,link_url=url,success_count=success_count,no_path_count=no_path_count,error_count=error_count,not_found_count=not_found_count,image_count=image_count)
 
-    return render_template('my-form.html',
+    return render_template('link-checker.html',
                            summary=summary_string,
                            output=result_string,
+                           error_count=error_count,
                            errors=error_string,
-                           images=image_string
+                           image_count=image_count,
+                           images=image_string,
+                           no_path_count=no_path_count,
+                           nopath=no_path_string
                            )

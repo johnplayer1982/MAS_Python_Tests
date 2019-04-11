@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def my_form():
-    return render_template('my-form.html')
+    return render_template('link-checker.html')
 
 @app.route('/', methods=['POST'])
 def my_form_post():

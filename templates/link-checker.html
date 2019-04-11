@@ -13,8 +13,9 @@
     <p class="summary">{{ summary|safe }}</p>
 
     <div class="tab">
-      <button class="tablinks" onclick="openTab(event, 'Errors')">Errors</button>
-      <button class="tablinks" onclick="openTab(event, 'Images')">Images</button>
+      <button class="tablinks" onclick="openTab(event, 'Errors')">Errors {{ error_count }}</button>
+      <button class="tablinks" onclick="openTab(event, 'Images')">Images {{ image_count }}</button>
+      <button class="tablinks" onclick="openTab(event, 'Nopath')">Incomplete Path {{ no_path_count }}</button>
       <button class="tablinks" onclick="openTab(event, 'Output')">Output</button>
     </div>
 
@@ -26,6 +27,11 @@
     <div id="Images" class="tabcontent">
       <h3>Images</h3>
       <p class="results">{{ images|safe }}</p>
+    </div>
+
+    <div id="Nopath" class="tabcontent">
+      <h3>Incomplete Path</h3>
+      <p class="results">{{ nopath|safe }}</p>
     </div>
 
     <div id="Output" class="tabcontent">
